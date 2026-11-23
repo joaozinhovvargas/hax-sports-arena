@@ -4,83 +4,335 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d0a">
 <title>Hax Sports Arena | HSA</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#080b09;color:white;font-family:Arial,sans-serif}
-header{padding:22px;text-align:center;background:#101713;border-bottom:1px solid #263b2e}
-header h1{margin:0;color:#55e58a}
-header p{margin:6px 0 0;color:#aaa}
-main{max-width:700px;margin:auto;padding:22px}
-section{background:#111914;border:1px solid #263b2e;border-radius:14px;padding:20px;margin-bottom:18px}
-h2{color:#55e58a;margin-top:0}
-p{line-height:1.5}
-a,.btn,button{display:inline-block;border:0;border-radius:9px;padding:12px 17px;background:#39c873;color:#07130b;text-decoration:none;font-weight:bold;cursor:pointer}
-.discord{background:#5865f2;color:white}
-input,textarea,select{width:100%;padding:12px;margin:8px 0 14px;background:#080d0a;color:white;border:1px solid #34483a;border-radius:8px;font:inherit}
-textarea{min-height:100px;resize:vertical}
-button:disabled{opacity:.5;cursor:not-allowed}
-#reviews{display:grid;gap:12px}
-.review{padding:14px;background:#0a100c;border:1px solid #263b2e;border-radius:10px}
-.review p{white-space:pre-wrap;overflow-wrap:anywhere}
-.stars{color:#ffd34d;font-size:20px}
-.small{color:#aaa;font-size:13px}
-.download-number{font-size:30px;color:#55e58a;font-weight:bold}
+
+:root{
+  --green:#48ed91;
+  --dark:#080d0a;
+  --card:#111a14;
+  --border:#263b2e;
+  --muted:#9ca99f;
+}
+
+body{
+  margin:0;
+  background:var(--dark);
+  color:white;
+  font-family:Arial,sans-serif;
+}
+
+header{
+  padding:30px 18px;
+  text-align:center;
+  background:linear-gradient(120deg,#101c14,#142b1c,#101713);
+  border-bottom:1px solid #294b34;
+}
+
+.logo{
+  display:inline-block;
+  font-size:13px;
+  letter-spacing:5px;
+  color:var(--green);
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+header h1{
+  margin:0;
+  font-size:clamp(27px,6vw,42px);
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+header h1 span{
+  color:var(--green);
+}
+
+header p{
+  color:#aab7ad;
+  margin:10px 0 0;
+  font-size:14px;
+}
+
+.hero{
+  text-align:center;
+  padding:38px 20px;
+  background:radial-gradient(ellipse at center,#183b25 0%,#0b130d 65%,#080d0a 100%);
+}
+
+.hero h2{
+  font-size:clamp(25px,6vw,35px);
+  margin:0 0 12px;
+}
+
+.hero h2 span{
+  color:var(--green);
+}
+
+.hero p{
+  color:#b4c1b7;
+  max-width:480px;
+  margin:0 auto 22px;
+  line-height:1.6;
+}
+
+main{
+  max-width:760px;
+  margin:auto;
+  padding:20px 16px 40px;
+}
+
+section{
+  background:linear-gradient(145deg,#141e17,#0e1511);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:23px;
+  margin-bottom:18px;
+  box-shadow:0 8px 25px #0003;
+}
+
+h2{
+  color:var(--green);
+  margin:0 0 13px;
+  font-size:21px;
+}
+
+p{
+  line-height:1.6;
+  color:#c1ccc4;
+}
+
+a,button{
+  display:inline-block;
+  border:0;
+  border-radius:10px;
+  padding:13px 19px;
+  background:linear-gradient(110deg,#42e98a,#24b966);
+  color:#06140b;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+a:hover,button:hover{
+  filter:brightness(1.12);
+  transform:translateY(-1px);
+}
+
+.discord{
+  background:linear-gradient(110deg,#6875ff,#4855d8);
+  color:white;
+}
+
+.download-card{
+  text-align:center;
+  background:linear-gradient(145deg,#14251a,#101813);
+  border-color:#376343;
+}
+
+.download-number{
+  font-size:43px;
+  font-weight:900;
+  color:var(--green);
+  margin:8px 0 18px;
+  text-shadow:0 0 20px #48ed9140;
+}
+
+.small{
+  color:var(--muted);
+  font-size:12px;
+}
+
+#reviews{
+  display:grid;
+  gap:12px;
+  margin-top:17px;
+}
+
+.review{
+  padding:16px;
+  background:#0a100c;
+  border:1px solid #263b2e;
+  border-radius:12px;
+}
+
+.review p{
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+
+.stars{
+  color:#ffd34d;
+  font-size:21px;
+  margin:8px 0;
+}
+
+.rating-summary{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  background:#0a120d;
+  border:1px solid #263b2e;
+  border-radius:12px;
+  margin-top:15px;
+}
+
+.rating-summary .stars{
+  margin:0;
+  font-size:25px;
+}
+
+input,textarea,select{
+  width:100%;
+  padding:13px;
+  margin:8px 0 16px;
+  background:#080d0a;
+  color:white;
+  border:1px solid #34483a;
+  border-radius:9px;
+  font:inherit;
+}
+
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+label{
+  color:#d5e2d8;
+  font-size:13px;
+  font-weight:bold;
+}
+
+button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+#account{
+  margin:10px 0 15px;
+  color:#b7c9bc;
+  font-size:14px;
+}
+
+#logout{
+  background:#29352d;
+  color:white;
+  margin-left:6px;
+}
+
+[hidden]{
+  display:none !important;
+}
+
+#status{
+  margin-top:15px;
+  overflow-wrap:anywhere;
+}
+
+footer{
+  text-align:center;
+  padding:25px 15px;
+  color:#718078;
+  border-top:1px solid #1e3024;
+  font-size:12px;
+}
+
+@media(max-width:480px){
+  header{padding:25px 12px}
+  main{padding:15px 12px 30px}
+  section{padding:19px}
+  .hero{padding:32px 17px}
+  .rating-summary{flex-wrap:wrap}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>HAX SPORTS ARENA</h1>
-<p>HSA • A comunidade do HaxBall</p>
+  <div class="logo">HSA</div>
+  <h1>HAX <span>SPORTS</span> ARENA</h1>
+  <p>A comunidade do HaxBall</p>
 </header>
 
-<main>
-<section>
-<h2>Bem-vindo à HSA!</h2>
-<p>Entre na comunidade, conheça nossas salas e participe das partidas!</p>
-<a class="discord" href="https://discord.gg/CSsjpujVv" target="_blank">Entrar no Discord</a>
-</section>
-
-<section>
-<h2>Hax Mobile</h2>
-<p>Baixe o aplicativo oficial da HSA para Android.</p>
-<p>Downloads registrados:</p>
-<div class="download-number" id="downloadCount">...</div>
-<a id="downloadButton" href="https://raw.githubusercontent.com/joaozinhovvargas/hax-sports-arena/main/Hax%20Mobile-debug.apk">Baixar Hax Mobile</a>
-<p class="small">O contador registra um download por conta Google.</p>
-</section>
-
-<section>
-<h2>Avaliações da comunidade</h2>
-<p>O que você acha da Hax Sports Arena?</p>
-<div class="stars" id="average">☆☆☆☆☆</div>
-<p id="summary" class="small">Carregando avaliações...</p>
-<div id="reviews"></div>
-</section>
-
-<section>
-<h2>Deixe sua avaliação</h2>
-<div id="account">Verificando login...</div>
-<button id="login">Entrar com Google</button>
-<button id="logout" hidden>Sair da conta</button>
-
-<div id="reviewForm" hidden>
-<label for="rating">Sua nota (1 a 5 estrelas)</label>
-<select id="rating">
-<option value="5">★★★★★ - 5</option>
-<option value="4">★★★★☆ - 4</option>
-<option value="3">★★★☆☆ - 3</option>
-<option value="2">★★☆☆☆ - 2</option>
-<option value="1">★☆☆☆☆ - 1</option>
-</select>
-<label for="comment">Comentário</label>
-<textarea id="comment" maxlength="500" placeholder="Escreva sua opinião..."></textarea>
-<button id="submit">Enviar avaliação</button>
+<div class="hero">
+  <h2>Sua arena. <span>Suas partidas.</span></h2>
+  <p>Entre na comunidade HSA, conheça nossas salas e participe da competição!</p>
+  <a class="discord" href="https://discord.gg/CSsjpujVv" target="_blank">ENTRAR NO DISCORD</a>
 </div>
-<p id="status" class="small"></p>
+
+<main>
+
+<section>
+  <h2>Sobre a HSA</h2>
+  <p>Bem-vindo à Hax Sports Arena! Uma comunidade criada para reunir jogadores, partidas e competições de HaxBall.</p>
 </section>
+
+<section class="download-card">
+  <h2>Hax Mobile</h2>
+  <p>Leve a experiência HSA com você. Baixe nosso aplicativo oficial para Android.</p>
+  <p class="small">DOWNLOADS REGISTRADOS</p>
+  <div class="download-number" id="downloadCount">...</div>
+  <a id="downloadButton" href="https://raw.githubusercontent.com/joaozinhovvargas/hax-sports-arena/main/Hax%20Mobile-debug.apk">BAIXAR HAX MOBILE</a>
+  <p class="small">O contador registra um download por conta Google.</p>
+</section>
+
+<section>
+  <h2>Avaliações da comunidade</h2>
+  <p>Veja o que os jogadores estão dizendo sobre a HSA.</p>
+
+  <div class="rating-summary">
+    <div class="stars" id="average">☆☆☆☆☆</div>
+    <div>
+      <strong id="summary">Carregando avaliações...</strong>
+      <p class="small">Média das avaliações</p>
+    </div>
+  </div>
+
+  <div id="reviews"></div>
+</section>
+
+<section>
+  <h2>Deixe sua avaliação</h2>
+  <p>Compartilhe sua opinião com a comunidade.</p>
+
+  <div id="account">Verificando login...</div>
+  <button id="login">ENTRAR COM GOOGLE</button>
+  <button id="logout" hidden>SAIR DA CONTA</button>
+
+  <div id="reviewForm" hidden>
+    <label for="rating">SUA NOTA</label>
+    <select id="rating">
+      <option value="5">★★★★★ - 5 estrelas</option>
+      <option value="4">★★★★☆ - 4 estrelas</option>
+      <option value="3">★★★☆☆ - 3 estrelas</option>
+      <option value="2">★★☆☆☆ - 2 estrelas</option>
+      <option value="1">★☆☆☆☆ - 1 estrela</option>
+    </select>
+
+    <label for="comment">SEU COMENTÁRIO</label>
+    <textarea id="comment" maxlength="500" placeholder="Escreva sua opinião..."></textarea>
+
+    <button id="submit">ENVIAR AVALIAÇÃO</button>
+  </div>
+
+  <p id="status" class="small"></p>
+</section>
+
 </main>
+
+<footer>
+  HAX SPORTS ARENA • HSA<br>
+  <p class="small">Feito para a comunidade HaxBall.</p>
+</footer>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
@@ -320,5 +572,6 @@ async function loadReviews() {
 
 loadReviews();
 </script>
+
 </body>
 </html>
