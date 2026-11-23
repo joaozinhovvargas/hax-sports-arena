@@ -20,128 +20,130 @@
 
 body{
   margin:0;
-  background:var(--dark);
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%,#173923 0%,#080d0a 65%);
   color:white;
   font-family:Arial,sans-serif;
 }
 
 header{
-  padding:30px 18px;
   text-align:center;
-  background:linear-gradient(120deg,#101c14,#142b1c,#101713);
-  border-bottom:1px solid #294b34;
+  padding:22px 15px;
 }
 
 .logo{
-  display:inline-block;
-  font-size:13px;
-  letter-spacing:5px;
   color:var(--green);
+  font-size:12px;
+  letter-spacing:5px;
   font-weight:bold;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 header h1{
   margin:0;
-  font-size:clamp(27px,6vw,42px);
-  font-weight:900;
+  font-size:20px;
   letter-spacing:2px;
 }
 
-header h1 span{
-  color:var(--green);
-}
-
-header p{
-  color:#aab7ad;
-  margin:10px 0 0;
-  font-size:14px;
-}
-
-.hero{
-  text-align:center;
-  padding:38px 20px;
-  background:radial-gradient(ellipse at center,#183b25 0%,#0b130d 65%,#080d0a 100%);
-}
-
-.hero h2{
-  font-size:clamp(25px,6vw,35px);
-  margin:0 0 12px;
-}
-
-.hero h2 span{
-  color:var(--green);
-}
-
-.hero p{
-  color:#b4c1b7;
-  max-width:480px;
-  margin:0 auto 22px;
-  line-height:1.6;
-}
+header h1 span{color:var(--green)}
 
 main{
-  max-width:760px;
-  margin:auto;
-  padding:20px 16px 40px;
+  width:100%;
+  max-width:650px;
+  margin:0 auto;
+  padding:12px 18px 35px;
 }
 
-section{
-  background:linear-gradient(145deg,#141e17,#0e1511);
+.download-card{
+  text-align:center;
+  padding:38px 20px 25px;
+  background:linear-gradient(145deg,#14251a,#0e1511);
+  border:1px solid #376343;
+  border-radius:20px;
+  box-shadow:0 12px 40px #0005;
+}
+
+.download-card h2{
+  font-size:clamp(32px,8vw,46px);
+  margin:0 0 28px;
+  color:white;
+  letter-spacing:1px;
+}
+
+.download-card h2 span{color:var(--green)}
+
+.download-button{
+  display:block;
+  width:100%;
+  max-width:300px;
+  margin:0 auto;
+  padding:15px;
+  border-radius:12px;
+  background:linear-gradient(110deg,#42e98a,#24b966);
+  color:#06140b;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:15px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:15px;
+}
+
+.stat-card{
+  min-width:0;
+  padding:17px 8px;
+  text-align:center;
+  background:#111a14;
   border:1px solid var(--border);
-  border-radius:16px;
-  padding:23px;
-  margin-bottom:18px;
-  box-shadow:0 8px 25px #0003;
+  border-radius:14px;
+}
+
+.stat-card h3{
+  margin:0 0 10px;
+  color:#b8c9bd;
+  font-size:13px;
+}
+
+.stat-number{
+  color:var(--green);
+  font-size:27px;
+  font-weight:900;
+}
+
+.stat-stars{
+  color:#ffd34d;
+  font-size:19px;
+  white-space:nowrap;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:7px;
+}
+
+.extra{
+  margin-top:28px;
+  padding:20px;
+  background:#111a14;
+  border:1px solid var(--border);
+  border-radius:15px;
 }
 
 h2{
   color:var(--green);
   margin:0 0 13px;
-  font-size:21px;
+  font-size:20px;
 }
 
 p{
   line-height:1.6;
   color:#c1ccc4;
-}
-
-a,button{
-  display:inline-block;
-  border:0;
-  border-radius:10px;
-  padding:13px 19px;
-  background:linear-gradient(110deg,#42e98a,#24b966);
-  color:#06140b;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:14px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-a:hover,button:hover{
-  filter:brightness(1.12);
-  transform:translateY(-1px);
-}
-
-.discord{
-  background:linear-gradient(110deg,#6875ff,#4855d8);
-  color:white;
-}
-
-.download-card{
-  text-align:center;
-  background:linear-gradient(145deg,#14251a,#101813);
-  border-color:#376343;
-}
-
-.download-number{
-  font-size:43px;
-  font-weight:900;
-  color:var(--green);
-  margin:8px 0 18px;
-  text-shadow:0 0 20px #48ed9140;
 }
 
 .small{
@@ -158,7 +160,7 @@ a:hover,button:hover{
 .review{
   padding:16px;
   background:#0a100c;
-  border:1px solid #263b2e;
+  border:1px solid var(--border);
   border-radius:12px;
 }
 
@@ -174,12 +176,9 @@ a:hover,button:hover{
 }
 
 .rating-summary{
-  display:flex;
-  align-items:center;
-  gap:12px;
   padding:14px;
   background:#0a120d;
-  border:1px solid #263b2e;
+  border:1px solid var(--border);
   border-radius:12px;
   margin-top:15px;
 }
@@ -211,10 +210,19 @@ label{
   font-weight:bold;
 }
 
-button:disabled{
-  opacity:.5;
-  cursor:not-allowed;
+a,button{
+  border:0;
+  border-radius:10px;
+  padding:13px 19px;
+  background:linear-gradient(110deg,#42e98a,#24b966);
+  color:#06140b;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+  cursor:pointer;
 }
+
+button:disabled{opacity:.5;cursor:not-allowed}
 
 #account{
   margin:10px 0 15px;
@@ -228,9 +236,7 @@ button:disabled{
   margin-left:6px;
 }
 
-[hidden]{
-  display:none !important;
-}
+[hidden]{display:none !important}
 
 #status{
   margin-top:15px;
@@ -239,18 +245,16 @@ button:disabled{
 
 footer{
   text-align:center;
-  padding:25px 15px;
+  padding:20px 15px;
   color:#718078;
   border-top:1px solid #1e3024;
   font-size:12px;
 }
 
-@media(max-width:480px){
-  header{padding:25px 12px}
-  main{padding:15px 12px 30px}
-  section{padding:19px}
-  .hero{padding:32px 17px}
-  .rating-summary{flex-wrap:wrap}
+@media(max-width:360px){
+  .stat-card{padding:14px 5px}
+  .stat-number{font-size:23px}
+  .stat-stars{font-size:16px}
 }
 </style>
 </head>
@@ -260,47 +264,42 @@ footer{
 <header>
   <div class="logo">HSA</div>
   <h1>HAX <span>SPORTS</span> ARENA</h1>
-  <p>A comunidade do HaxBall</p>
 </header>
-
-<div class="hero">
-  <h2>Sua arena. <span>Suas partidas.</span></h2>
-  <p>Entre na comunidade HSA, conheça nossas salas e participe da competição!</p>
-  <a class="discord" href="https://discord.gg/CSsjpujVv" target="_blank">ENTRAR NO DISCORD</a>
-</div>
 
 <main>
 
-<section>
-  <h2>Sobre a HSA</h2>
-  <p>Bem-vindo à Hax Sports Arena! Uma comunidade criada para reunir jogadores, partidas e competições de HaxBall.</p>
-</section>
-
 <section class="download-card">
-  <h2>Hax Mobile</h2>
-  <p>Leve a experiência HSA com você. Baixe nosso aplicativo oficial para Android.</p>
-  <p class="small">DOWNLOADS REGISTRADOS</p>
-  <div class="download-number" id="downloadCount">...</div>
-  <a id="downloadButton" href="https://raw.githubusercontent.com/joaozinhovvargas/hax-sports-arena/main/Hax%20Mobile-debug.apk">BAIXAR HAX MOBILE</a>
-  <p class="small">O contador registra um download por conta Google.</p>
+  <h2>Hax <span>Mobile</span></h2>
+
+  <a class="download-button" id="downloadButton"
+  href="https://raw.githubusercontent.com/joaozinhovvargas/hax-sports-arena/main/Hax%20Mobile-debug.apk">
+    BAIXAR APLICATIVO
+  </a>
+
+  <div class="stats">
+
+    <div class="stat-card">
+      <h3>DOWNLOADS</h3>
+      <div class="stat-number" id="downloadCount">...</div>
+      <div class="stat-label">Downloads registrados</div>
+    </div>
+
+    <div class="stat-card">
+      <h3>AVALIAÇÃO MÉDIA</h3>
+      <div class="stat-stars" id="average">☆☆☆☆☆</div>
+      <div class="stat-label" id="summary">Carregando...</div>
+    </div>
+
+  </div>
 </section>
 
-<section>
+<section class="extra">
   <h2>Avaliações da comunidade</h2>
   <p>Veja o que os jogadores estão dizendo sobre a HSA.</p>
-
-  <div class="rating-summary">
-    <div class="stars" id="average">☆☆☆☆☆</div>
-    <div>
-      <strong id="summary">Carregando avaliações...</strong>
-      <p class="small">Média das avaliações</p>
-    </div>
-  </div>
-
   <div id="reviews"></div>
 </section>
 
-<section>
+<section class="extra">
   <h2>Deixe sua avaliação</h2>
   <p>Compartilhe sua opinião com a comunidade.</p>
 
