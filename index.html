@@ -21,8 +21,7 @@
 body{
   margin:0;
   min-height:100vh;
-  background:
-    radial-gradient(ellipse at 50% 0%,#173923 0%,#080d0a 65%);
+  background:radial-gradient(ellipse at 50% 0%,#173923 0%,#080d0a 65%);
   color:white;
   font-family:Arial,sans-serif;
 }
@@ -82,6 +81,21 @@ main{
   border-radius:12px;
   background:linear-gradient(110deg,#42e98a,#24b966);
   color:#06140b;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:15px;
+}
+
+.discord-button{
+  display:block;
+  width:100%;
+  max-width:300px;
+  margin:15px auto 0;
+  padding:15px;
+  text-align:center;
+  border-radius:12px;
+  background:#5865F2;
+  color:white;
   text-decoration:none;
   font-weight:bold;
   font-size:15px;
@@ -175,19 +189,6 @@ p{
   margin:8px 0;
 }
 
-.rating-summary{
-  padding:14px;
-  background:#0a120d;
-  border:1px solid var(--border);
-  border-radius:12px;
-  margin-top:15px;
-}
-
-.rating-summary .stars{
-  margin:0;
-  font-size:25px;
-}
-
 input,textarea,select{
   width:100%;
   padding:13px;
@@ -211,6 +212,10 @@ label{
 }
 
 a,button{
+  cursor:pointer;
+}
+
+button{
   border:0;
   border-radius:10px;
   padding:13px 19px;
@@ -219,7 +224,6 @@ a,button{
   text-decoration:none;
   font-weight:bold;
   font-size:14px;
-  cursor:pointer;
 }
 
 button:disabled{opacity:.5;cursor:not-allowed}
@@ -292,6 +296,13 @@ footer{
 
   </div>
 </section>
+
+<a class="discord-button"
+   href="https://discord.gg/CSsjpujVv"
+   target="_blank"
+   rel="noopener noreferrer">
+  ENTRAR NO DISCORD
+</a>
 
 <section class="extra">
   <h2>Avaliações da comunidade</h2>
